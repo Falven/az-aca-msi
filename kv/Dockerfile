@@ -4,11 +4,10 @@ WORKDIR /kv
 
 # copy csproj and restore as distinct layers
 COPY *.csproj .
-RUN dotnet restore --use-current-runtime
 
 # copy and publish app and libraries
 COPY . .
-RUN dotnet publish -c Release -o /app --use-current-runtime --no-restore
+RUN dotnet publish -c Release -o /app --use-current-runtime
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/runtime:7.0
