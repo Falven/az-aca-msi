@@ -1,4 +1,4 @@
-$ProjectName = "msiacakvpoc"
+$ProjectName = "msiacapoc"
 $Environment = "prod"
 $Location = "eastus"
 $ResourceGroupName = "rg-${ProjectName}-${Environment}-001"
@@ -19,7 +19,7 @@ az acr login -n $RegistryName
 docker pull $MCRAzCliContainer
 docker tag $MCRAzCliContainer $ACRAzCliContainer
 docker push $ACRAzCliContainer
-docker build kv -f kv\kv\Dockerfile -t $ACRDotnetContainer
+docker build kv -f kv\Dockerfile -t $ACRDotnetContainer
 docker push $ACRDotnetContainer
 az deployment group create `
     -g $ResourceGroupName `
