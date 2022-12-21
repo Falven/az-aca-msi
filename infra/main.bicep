@@ -41,6 +41,12 @@ module azCliContainerApp 'container-app.bicep' = {
     registryName: registryName
     containerImage: azCliContainer
     command: [ 'tail', '-f', '/dev/null' ]
+    appSettings: [
+      {
+        name: 'APPSETTING_WEBSITE_SITE_NAME'
+        value: 'azcli-workaround'
+      }
+    ]
   }
 }
 
